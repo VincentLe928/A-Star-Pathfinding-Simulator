@@ -1,7 +1,5 @@
-
 import heapq
 
-# 0 = Empty space, 1 = Obstacle
 grid = [
     [0, 0, 0, 0, 0],
     [0, 0, 1, 0, 0],
@@ -15,18 +13,17 @@ goal = (4, 4)
 rows = len(grid)
 columns = len(grid[0])
 
+# Up, Down, Left, Right
 directions = [
-    (-1, 0),  # Up
-    (1, 0),   # Down
-    (0, -1),  # Left
-    (0, 1)    # Right
+    (-1, 0),
+    (1, 0),
+    (0, -1),
+    (0, 1)
 ]
-
 
 # Check if the position is inside the grid
 def in_bounds(r, c):
     return 0 <= r < rows and 0 <= c < columns
-
 
 # Check if the position is safe to enter
 def can_go(r, c):
@@ -38,14 +35,12 @@ def can_go(r, c):
 
     return True
 
-
 # Manhattan distance
 def heuristic(current, goal):
     row_distance = abs(goal[0] - current[0])
     column_distance = abs(goal[1] - current[1])
 
     return row_distance + column_distance
-
 
 # A* pathfinding algorithm
 def astar(start, goal):
@@ -99,7 +94,6 @@ def astar(start, goal):
 
     return None
 
-
 # Print the grid in the terminal
 def print_grid(path):
     for r in range(rows):
@@ -119,9 +113,7 @@ def print_grid(path):
 
         print()
 
-
 # Run the program
-print("A* 2D Pathfinding Simulator")
 print("Start:", start)
 print("Goal:", goal)
 
